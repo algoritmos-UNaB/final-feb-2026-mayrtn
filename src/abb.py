@@ -3,6 +3,17 @@
 //(puede recorrer y podar por lexicográfico; no se exige análisis amortizado ni casos extremos). 
 //Construye el ABB con m = 6 + (S mod 5) títulos y muestra el inorden.
 
+import json
+
+with open(archivo, 'r') as archivoJson:
+        datos = json.load(archivoJson)
+        dni = datos["dni_termina"] 
+        dia_examen = datos["dia_examen"]
+        return ((dni + dia_examen) % 17) + 3
+    
+s = cargar_s_desde_json('student.json')
+print(f"Valor de s derivado: {s}")
+  
 class JuegoObjeto:
   def __init__ (self, titulo, precio, valoracion):
     self.titulo=titulo
@@ -83,11 +94,15 @@ lista_juegos = [
   JuegoObjeto("NFS Underground 2", 387, 4.8),
   JuegoObjeto("GTA San Andreas", 1300, 4.1),
   JuegoObjeto("Counter Strike", 150, 4.9 ),
-  JuegoObjeto("Populus", 76, 3.4)
+  JuegoObjeto("Populus", 76, 3.4),
+  JuegoObjeto("Minecraft", 1450, 4.4)
 ]
 
-for juego in lista_juegos:
-  catalogo.insertar(juego.titulo, juego)
+m = 6 + (s % 5)
+
+for i in range(m):
+    juego = lista_juegos[i % len(lista_juegos)]
+    catalogo.insertar(juego.titulo, juego)
 
 catalogo.inorden()
 
@@ -95,3 +110,4 @@ prefijo = "GTA"
 print(f"Resultados para la busqueda ' {prefijo} ' : {catalogo.buscar_prefix(prefijo)}")
       
   
+
