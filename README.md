@@ -1,3 +1,19 @@
+# Examen Final: Estructuras de Datos y Algoritmos
+## Proyecto: Catálogo de Videojuegos (Steam-like)
+
+
+### Datos del Estudiante
+* **Nombre:** Mayra Artoni
+* **DNI:** 37868810
+* **Variable S:** Calculada dinámicamente desde `student.json`
+
+* valor calculado de $S = 15$.:
+* Tamaño del Catálogo (m) - $6 + (S \pmod 5)$ - 6 títulos
+* Origen del BFS - $S \pmod V$ - Nodo 7
+* Cantidad de Nodos (V) - $8 + (S \pmod 5)$ - 8 nodos
+* Cantidad de Aristas (E) - $2V + (S \pmod 4)$ - 19 aristas
+
+
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/3yY8kq6c)
 # Estructuras de Datos. FINAL – FEBRERO – 18 / 02 / 2026
 
@@ -19,37 +35,9 @@ Material permitido: apuntes y libros de la bibliografía obligatoria del program
 1. Encapsulamiento e Interfaces (12 pts)
    - En el contexto de un catálogo tipo Steam, define qué es una interfaz en Programación Orientada a Objetos. Propón una interfaz para `Catalogo`, `Juego`, `Usuario` y `Reseña` con pre/post condiciones e invariantes (al menos 3 por clase, 2 deben depender de `S`, p. ej. longitud mínima de `id_interno` ≥ `S`). Explica cómo el encapsulamiento evita inconsistencias ante aliasing.
 
-Una interfaz define que debe hacer una clase, es decir los metodos que debe tener como minimo.  En el contexto de un catalogo como Steam, si tenemos una clase 'catalogo' la interfaz garantiza que se van a implementar metodos como obetener_catalogo_completo() o mostrar_categorias().
-Interfaces para las entidades mencionadas: 
-'Juego'
-invariante: el precio del juego nunca puede ser un valor negativo
-postcondicion: al aplicar un descuento, el precio no puede ser menor que s
-precondicion: al cargar un nuevo juego, el precio no puede ser null
-'Catalogo'
-invariante: el catalogo no puede contener 2 o mas juegos con el mismo id
-precondicion: para buscar un juego por nombre, el usuario debe ingresar por lo menos 3 caracteres
-postcondicion: al filtrar por mas vendidos el primer juego de la lista tiene que tener un numero de ventas superiores al segundo
-'usuario'
-invariante: el nombre de usuario tiene que tener al menos s caracteres
-precondicion: para registrar un nuevo usuario debe ingresar un mail valido
-postcondicion: al comprar un juego, el juego tiene que aparecer en la lista de juegos disponibles del usuario
-'Reseña'
-invariante: el puntaje debe ser un numero entre 1 y 5
-precondicion: el usuario debe tener al menos 3 juegos en su biblioteca para poder escribir una reseña
-postcondicion: al listar las reseñas, se deben mostrar primero las que tengan mas de s likes
-
-el encapsulamiento nos proteje de la posibilidad de modifcar un objeto a traves de una variable, a traves del uso de atributos privadoos ( lo que nos obliga a modificar los objetos a traves de metodos especificos) y devolviendo copias de los objetos en vez del objeto en si. 
-
-
-
 2. Estructuras de Datos Recursivas (10 pts)
    - En el catálogo, los géneros y subgéneros forman una jerarquía. Define listas, árboles y grafos; describe 2 representaciones para grafos (matriz y listas de adyacencia) y fundamenta cuándo elegir cada una considerando `V = 8 + (S mod 5)` y `E = 2V + (S mod 4)`.
   
-   - listas : estructura lineal, cada elemento tiene un unico sucesor. 
-   - arbol : estructura jerarquica no lineal
-   - grafos: es un conjunto de nodos conectados por aristas. las conecciones no son jerarquicas sino relacionales
-  
-
 3. Análisis de Algoritmos (12 pts)
    - Explica O(), Ω y Θ. Deriva las complejidades (mejor/promedio/peor caso) para buscar por prefijo en un ABB de títulos y justifica podas por orden lexicográfico. Plantea una recurrencia para `top_k` por partición y discute su solución asintótica (no es necesario resolverla formalmente).
 
