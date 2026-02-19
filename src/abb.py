@@ -1,7 +1,7 @@
-//Árbol Binario de Búsqueda (ABB) de Juegos (12 pts)
-//Implementa en Python insert(titulo, juego), buscar(titulo), inorden() y buscar_prefix(prefijo)
-//(puede recorrer y podar por lexicográfico; no se exige análisis amortizado ni casos extremos). 
-//Construye el ABB con m = 6 + (S mod 5) títulos y muestra el inorden.
+#Árbol Binario de Búsqueda (ABB) de Juegos (12 pts)
+#Implementa en Python insert(titulo, juego), buscar(titulo), inorden() y buscar_prefix(prefijo)
+#(puede recorrer y podar por lexicográfico; no se exige análisis amortizado ni casos extremos). 
+#Construye el ABB con m = 6 + (S mod 5) títulos y muestra el inorden.
 
 import json
 
@@ -110,4 +110,5 @@ prefijo = "GTA"
 print(f"Resultados para la busqueda ' {prefijo} ' : {catalogo.buscar_prefix(prefijo)}")
       
   
+
 
